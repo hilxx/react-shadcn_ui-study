@@ -1,14 +1,20 @@
-import {GuideMenubar} from "@/features/guide/components/GuideMenubar";
-import {GuideSidebar} from "@/features/guide/components/GuideSidebar";
+import { GuideMenubar } from "@/features/guide/components/GuideMenubar"
+import { pageContentVariants, pageShellVariants } from "@/lib/styles/page-shell"
+import { cn } from "@/lib/utils"
+import styles from "./GuideView.module.css"
 
 export function GuideView() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className={pageShellVariants({ tone: "muted" })}>
+      <div
+        className={pageContentVariants({
+          width: "full",
+          surface: "transparent",
+        })}
+      >
         <GuideMenubar />
-        <h1>UI 가이드</h1>
-        <GuideSidebar />
-      </main>
+        <h1 className={cn(styles.guideTitle)}>UI 가이드</h1>
+      </div>
     </div>
-  );
+  )
 }

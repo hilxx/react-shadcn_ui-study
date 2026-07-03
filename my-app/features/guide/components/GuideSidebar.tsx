@@ -1,14 +1,20 @@
-import {SidebarProvider, SidebarTrigger} from "@/components/ui/sidebar";
-import {AppSidebar} from "@/components/app-sidebar";
+"use client"
 
-export default function Layout({children}: {children: React.ReactNode}) {
+import { AppSidebar } from "@/components/app-sidebar"
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar"
+
+export function GuideSidebar({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main>
+      <SidebarInset>
         <SidebarTrigger />
         {children}
-      </main>
+      </SidebarInset>
     </SidebarProvider>
-  );
+  )
 }
