@@ -1,13 +1,14 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { actionLinkVariants } from "@/lib/styles/action-link"
-import { pageContentVariants, pageShellVariants } from "@/lib/styles/page-shell"
+import Image from "next/image";
+import Link from "next/link";
+import {Button} from "@/components/ui/button";
+import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip";
+import {actionLinkVariants} from "@/lib/styles/action-link";
+import {pageContentVariants, pageShellVariants} from "@/lib/styles/page-shell";
+import {Info} from "lucide-react";
 
 export default function Home() {
   return (
-    <div className={pageShellVariants({ tone: "muted" })}>
+    <div className={pageShellVariants({tone: "muted"})}>
       <main className={pageContentVariants()}>
         <Image
           className="dark:invert"
@@ -44,21 +45,33 @@ export default function Home() {
         <div className="flex gap-2">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="default">Hover me</Button>
+              <Button variant="default">
+                {/* lucide는 부모 색상 상속됨, 따로 props로 지정할 수 있음 */}
+                <Info data-icon="inline-start" color="#f26f21" />
+                Hover me
+              </Button>
             </TooltipTrigger>
             <TooltipContent>
               <p>This is a tooltip</p>
             </TooltipContent>
           </Tooltip>
 
-          <Button variant="secondary" size="sm" asChild>
-            <Link href="/guide">UI 가이드</Link>
+          <Button variant="secondary" asChild>
+            <Link href="/guide">
+              <img
+                src="/images/logo/fav.svg"
+                alt="logo"
+                width={16}
+                height={16}
+              />
+              UI 가이드
+            </Link>
           </Button>
         </div>
 
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
-            className={actionLinkVariants({ variant: "primary" })}
+            className={actionLinkVariants({variant: "primary"})}
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
@@ -73,7 +86,7 @@ export default function Home() {
             Deploy Now
           </a>
           <a
-            className={actionLinkVariants({ variant: "secondary" })}
+            className={actionLinkVariants({variant: "secondary"})}
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
@@ -83,5 +96,5 @@ export default function Home() {
         </div>
       </main>
     </div>
-  )
+  );
 }
