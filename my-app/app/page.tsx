@@ -46,8 +46,10 @@ export default function Home() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="default">
-                {/* lucide는 부모 색상 상속됨, 따로 props로 지정할 수 있음 */}
-                <Info data-icon="inline-start" color="#f26f21" />
+                <Info
+                  data-icon="inline-start"
+                  className="text-muted-foreground"
+                />
                 Hover me
               </Button>
             </TooltipTrigger>
