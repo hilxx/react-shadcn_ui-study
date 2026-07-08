@@ -60,7 +60,7 @@ export default function Home() {
 
           <Button variant="secondary" asChild>
             <Link href="/guide">
-              <img
+              <Image
                 src="/images/logo/fav.svg"
                 alt="logo"
                 width={16}
